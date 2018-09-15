@@ -175,7 +175,7 @@ def hours_minutes(raw_table, base_index):
                           raw_table[base_index + 1])
 
 
-def day_mounth_year(raw_table, base_index):
+def day_month_year(raw_table, base_index):
     """ Convert raw value to date """
     return "%02d/%02d/%02d" % (raw_table[base_index],
                                raw_table[base_index + 1],
@@ -264,6 +264,13 @@ def fan(raw_table, base_index):
     """ Convert for fan speed """
     val = raw_table[base_index]
     return val & 0x007F
+
+def texte14(raw_table, base_index):
+    """ Convert 14 char of text """
+    result = ''
+    for word in raw_table[base_index:base_index + 7]:
+        result = result + chr(word >> 8) + chr(word & 0x00FF)
+    return result
 
 def write_unit(value):
     """ Convert unit value to modbus value """
