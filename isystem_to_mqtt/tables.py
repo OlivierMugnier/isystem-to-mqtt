@@ -47,7 +47,7 @@ READ_TABLE_DIEMATIC3 = {
     7: TagDefinition("outside/temperature", convert.tenth),
     8: TagDefinition("boiler/summer-setpoint", convert.tenth),
     9: TagDefinition("outside/antifreeze-temperature", convert.tenth),
-    13: TagDefinition("system/antifreeze-duration", convert.tenth),
+    13: TagDefinition("system/antifreeze-duration", convert.unit),
 
     14: TagDefinition("zone-a/day-target-temperature", convert.tenth),
     15: TagDefinition("zone-a/night-target-temperature", convert.tenth),
@@ -340,7 +340,8 @@ READ_TABLE_MODULENS_O = {
     677: TagDefinition("boiler/min-temperature", convert.tenth),
     678: TagDefinition("boiler/max-temperature", convert.tenth),
     679: TagDefinition("boiler/hours-minute", convert.hours_minutes, 2),
-    681: TagDefinition("boiler/date", convert.day_mounth_year, 3),
+    681: TagDefinition("boiler/dayofweek", convert.unit , 1),
+    682: TagDefinition("boiler/date", day_mounth_year, 3),
     710: TagDefinition("boiler/pcu-stat", convert.unit),
     711: TagDefinition("boiler/pcu-substat", convert.unit),
     712: TagDefinition("boiler/pcu-block", convert.unit),
