@@ -47,7 +47,7 @@ READ_TABLE_DIEMATIC3 = {
     7: TagDefinition("outside/temperature", convert.tenth),
     8: TagDefinition("boiler/summer-setpoint", convert.tenth),
     9: TagDefinition("outside/antifreeze-temperature", convert.tenth),
-    13: TagDefinition("system/HollydaysPeriod", convert.tenth),
+    13: TagDefinition("system/antifreeze-duration", convert.tenth),
 
     14: TagDefinition("zone-a/day-target-temperature", convert.tenth),
     15: TagDefinition("zone-a/night-target-temperature", convert.tenth),
@@ -134,6 +134,7 @@ WRITE_TABLE_DIEMATIC3 = {
     "system/day/SET": WriteTagDefinition(108, convert.write_unit),
     "system/month/SET": WriteTagDefinition(109, convert.write_unit),
     "system/year/SET": WriteTagDefinition(110, convert.write_unit),
+    "system/antifreeze-duration/SET": WriteTagDefinition(13, convert.write_unit),
 
     "zone-a/mode-simple/SET": WriteTagDefinition(17, convert.write_derog_bit_simple),
     "zone-a/mode-raw/SET": WriteTagDefinition(17, convert.write_unit),
