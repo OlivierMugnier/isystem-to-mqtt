@@ -15,6 +15,7 @@ ZONE_TABLE_DIEMATIC3 = [
                          (3, 4),
                          (108, 3),
                          (7, 3),
+                         (13, 3),
                          (14, 8),
                          (0,  0),
                          (23, 11),
@@ -46,6 +47,7 @@ READ_TABLE_DIEMATIC3 = {
     7: TagDefinition("outside/temperature", convert.tenth),
     8: TagDefinition("boiler/summer-setpoint", convert.tenth),
     9: TagDefinition("outside/antifreeze-temperature", convert.tenth),
+    13: TagDefinition("system/HollydaysPeriod", convert.tenth),
 
     14: TagDefinition("zone-a/day-target-temperature", convert.tenth),
     15: TagDefinition("zone-a/night-target-temperature", convert.tenth),
