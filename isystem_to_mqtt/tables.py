@@ -341,7 +341,7 @@ READ_TABLE_MODULENS_O = {
     678: TagDefinition("boiler/max-temperature", convert.tenth),
     679: TagDefinition("boiler/hours-minute", convert.hours_minutes, 2),
     681: TagDefinition("boiler/dayofweek", convert.unit , 1),
-    682: TagDefinition("boiler/date", day_month_year, 3),
+    682: TagDefinition("boiler/date", convert.day_month_year, 3),
     710: TagDefinition("boiler/pcu-stat", convert.unit),
     711: TagDefinition("boiler/pcu-substat", convert.unit),
     712: TagDefinition("boiler/pcu-block", convert.unit),
