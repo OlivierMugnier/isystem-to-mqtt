@@ -8,6 +8,7 @@ from __future__ import print_function
 import argparse
 import logging
 import time
+import os
 
 try:
     import queue
@@ -20,6 +21,13 @@ import paho.mqtt.client as mqtt
 import isystem_to_mqtt.tables
 import isystem_to_mqtt.isystem_modbus
 
+def writePidFile():
+    pid = str(os.getpid())
+    currentFile = open('/var/run/pollChaudiere.pid', 'w')
+    currentFile.write(pid)
+    currentFile.close()
+
+writePidFile()
 parser = argparse.ArgumentParser()
 parser.add_argument("server", help="MQtt server to connect to.")
 parser.add_argument("--user", help="MQtt username.")
@@ -57,6 +65,7 @@ logging.basicConfig(level=numeric_level)
 
 _LOGGER = logging.getLogger(__name__)
 
+writePidFile()
 
 (READ_TABLE, WRITE_TABLE, READ_ZONES) = isystem_to_mqtt.tables.get_tables(args.model)
 
