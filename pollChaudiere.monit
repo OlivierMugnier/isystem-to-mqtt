@@ -1,5 +1,5 @@
-check process pollChaudiere with pidfile /var/run/pollChaudiere
-start program = "/bin/bash -c 'sudo poll_isystem_mqtt.py 192.168.21.240 --log DEBUG --serial /dev/ttyUSB0 --deviceid 10 --bimaster --model diematic3'"
-stop program = "kill $(cat /var/run/pollChaudiere)"
+check process pollChaudiere with pidfile /var/run/pollChaudiere.pid
+start program = "/bin/bash -c '/usr/local/bin/poll_isystem_mqtt.py 192.168.21.240 --log DEBUG --serial /dev/ttyUSB0 --deviceid 10 --bimaster --model diematic3 &>/tmp/pollChaudiere.log'"
+stop program = "kill $(cat /var/run/pollChaudiere.pid)"
 if 5 restart within 5 cycles then alert
 
