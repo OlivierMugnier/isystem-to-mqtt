@@ -1,0 +1,29 @@
+#!/bin/bash
+
+PIDFILE=/var/run/pollChaudiere.pid
+
+case $1 in
+   start)
+       # Launch your program as a detached process
+       /home/pi/pollChaudiere.sh 2>/dev/null &
+       # Get its PID and store it
+       echo $! > ${PIDFILE} 
+   ;;
+   status)
+      if [ -f ${PIDFILE} ]
+      then
+        ps aux | grep $(cat ${PIDFILE} )
+      else
+        echo "No PID File !"
+        ps aux | grep "pollChaudiere"
+      fi
+   ;;
+   stop)
+      kill `cat ${PIDFILE}`
+      # Now that it's killed, don't forget to remove the PID file
+      rm ${PIDFILE}
+   ;;
+   *)
+      echo "usage: pollChaudiere.sh {start|status|stop}" ;;
+esac
+exit 0
