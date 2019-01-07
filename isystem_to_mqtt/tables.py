@@ -118,12 +118,13 @@ READ_TABLE_DIEMATIC3 = {
     147: TagDefinition("zone-b/schedule", convert.json_week_schedule, 21),
     189: TagDefinition("dhw/schedule", convert.json_week_schedule, 21),
 
-    453: TagDefinition("boiler/return-temperature", convert.tenth),
-    456: TagDefinition("boiler/pressure", convert.tenth),
-
     231: TagDefinition("zone-a/program", convert.unit),
     232: TagDefinition("zone-b/program", convert.unit),
 
+    274: TagDefinition("outside/calibration", convert.tenth),
+
+    453: TagDefinition("boiler/return-temperature", convert.tenth),
+    456: TagDefinition("boiler/pressure", convert.tenth),
     465: TagDefinition("boiler/failure", convert.unit),
 }
 
@@ -153,7 +154,7 @@ WRITE_TABLE_DIEMATIC3 = {
 
     "zone-a/program/SET": WriteTagDefinition(231, convert.write_unit),
     "zone-b/program/SET": WriteTagDefinition(232, convert.write_unit),
-
+    "outside/calibration/SET": WriteTagDefinition(274, convert.write_tenth),
 }
 
 
