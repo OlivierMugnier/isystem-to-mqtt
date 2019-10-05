@@ -38,6 +38,7 @@ class ISystemInstrument(Instrument):
 
         self.serial.timeout = WAITING_TIMEOUT
         # read until boiler is master
+        self.serial.close()
         self.serial.open()
         data = b''
         number_of_wait = 0
